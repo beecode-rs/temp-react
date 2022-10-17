@@ -1,0 +1,112 @@
+{
+  "author": "Milos Bugarinovic <milos.bugarinovic@gmail.com>",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        0
+      ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@beecode/msh-node-app": "1.0.4",
+    "@beecode/msh-node-env": "1.1.4",
+    "@beecode/msh-node-util": "3.3.2",
+    "@fortawesome/fontawesome-svg-core": "6.2.0",
+    "@fortawesome/free-solid-svg-icons": "6.2.0",
+    "@fortawesome/react-fontawesome": "0.2.0",
+    "@hookform/resolvers": "2.9.9",
+    "bootstrap": "5.2.2",
+    "joi": "17.6.0",
+    "react": "18.2.0",
+    "react-bootstrap": "2.5.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.37.0",
+    "react-router-dom": "6.4.2",
+    "react-scripts": "5.0.1",
+    "react-toastify": "9.0.8",
+    "sass": "1.55.0",
+    "typescript": "4.8.4",
+    "web-vitals": "3.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.1.2",
+    "@commitlint/config-conventional": "17.1.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "13.4.0",
+    "@testing-library/user-event": "14.4.3",
+    "@types/jest": "29.1.2",
+    "@types/node": "18.11.0",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "@types/react-router-dom": "5.3.3",
+    "@types/react-toastify": "4.1.0",
+    "@types/sass": "1.43.1",
+    "@typescript-eslint/eslint-plugin": "5.40.0",
+    "@typescript-eslint/parser": "5.40.0",
+    "copy-webpack-plugin": "11.0.0",
+    "eslint": "8.25.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "rimraf": "3.0.2",
+    "ts-loader": "9.4.1",
+    "webpack-cli": "4.10.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "homepage": "/{{{projectName}}}/",
+  "lint-staged": {
+    "./src/**/*.{ts,tsx,js,jsx}": "eslint"
+  },
+  "name": "{{{projectName}}}",
+  "private": true,
+  "scripts": {
+    "audit:fix": "npx npm-force-resolutions",
+    "build": "react-scripts build",
+    "clean": "rimraf ./build/*",
+    "doc:toc": "npx markdown-toc -i ./README.md",
+    "eject": "react-scripts eject",
+    "initial-setup": "npm run initial-setup:husky && npm run initial-setup:git-config",
+    "initial-setup:git-config": "git config include.path ../.git-config",
+    "initial-setup:husky": "npx husky install",
+    "lint": "npm run lint:es && npm run lint:prettier && npm run lint:md",
+    "lint:es": "eslint . --ext .ts,.tsx --quiet",
+    "lint:es:fix": "npm run lint:es -- --fix",
+    "lint:fix": "npm run lint:es:fix && npm run lint:prettier:fix && npm run lint:md:fix",
+    "lint:md": "npm run lint:md:fix -- -c",
+    "lint:md:fix": "npx markdown-table-formatter README.md",
+    "lint:prettier": "prettier --check \"./src/**/*.{ts,tsx,json}\"",
+    "lint:prettier:fix": "prettier --write \"./src/**/*.{ts,tsx,json}\"",
+    "rebuild": "npm run clean && npm run build",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "tsc:check": "tsc --noEmit"
+  },
+  "version": "0.1.0"
+}
